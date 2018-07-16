@@ -1,0 +1,33 @@
+
+ <h2>{{this.nombre}}</h2>
+
+ <span><img src="{{this.photoURL}}" alt="DescripciónGráfica"></span>
+
+<span>
+  <p>{{this.preparacion}}</p>
+
+<p>
+  {{#each this.ingredientes}}
+  <ul>
+    <li>
+      {{this.qty}} {{this.ingredientName}}
+    </li>
+  </ul>
+  {{/each}}
+</p>
+
+<button id="carro">Añadir al carrito</button>
+</span>
+
+<script>
+var button = document.getElementById('carro');
+button.addEventListener('click', function() {
+  recipe.push({{this.ingredientes}})
+  console.log(recipe);
+})
+{{!-- console.log(recipe); --}}
+
+
+</script>
+
+ 

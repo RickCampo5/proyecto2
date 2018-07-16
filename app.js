@@ -8,6 +8,9 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const session = require('express-session');
+const passport = require('./helpers/passport');
+
 
 
 mongoose.Promise = Promise;
@@ -24,6 +27,15 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express();
 
+
+app.use(session({
+  secret: 'receta',
+  resave: true,
+  saveUninitialized: true
+ }));
+ 
+ app.use(passport.initialize());
+ app.use(passport.session());
 // Middleware Setup
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -52,6 +64,10 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 const index = require('./routes/index');
+const auth = require('./routes/auth');
+const userPro = require('./routes/user');
+app.use('/profile', userPro);
+app.use('/', auth);
 app.use('/', index);
 
 
