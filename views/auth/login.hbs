@@ -1,12 +1,28 @@
-{{#if error}} 
-<h1 style="color:red">{{error}}</h1> 
-{{/if}}
-<form action="/login" method="post">
-   <p> Tu email
-       <input name="email" type="email">
-   </p>
-   <p> Tu password
-       <input name="password" type="password">
-   </p>
-   <input type="submit">
-</form>
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Iniciar sesión</h1>
+      <div class="row center">
+        {{!-- <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5> --}}
+        {{#if error}} 
+        <h1 style="color:red">{{error}}</h1> 
+        {{/if}}
+        <form action="/login" method="post">
+        <p> Tu email
+        <input name="email" type="email"></p>
+        <p> Tu password
+        <input name="password" type="password"></p>
+        
+        <div class="row center">
+            {{!-- <a id="download-button" class="btn-large waves-effect waves-light orange white-text"><input type="submit" ></a> --}}
+            <input id="download-button" class="btn-large waves-effect waves-light orange white-text" type="submit">
+        </div>
+        </form>
+      </div>
+      
+      <br><br>
+
+    </div>
+  </div>
+

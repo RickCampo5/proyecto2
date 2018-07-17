@@ -1,28 +1,46 @@
+<head>
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+</head>
+
 
  <h2>{{this.nombre}}</h2>
-
- <span><img src="{{this.photoURL}}" alt="DescripciónGráfica"></span>
+<div class="container">
+ <span>
+  <img src="{{this.photoURL}}" alt="DescripciónGráfica">
+</span>
 
 <span>
-  <p>{{this.preparacion}}</p>
-
+  <p>
+    {{this.preparacion}}
+  </p>
+</span>
+</div>
+<div class="container">
 <p>
   {{#each this.ingredientes}}
-  <ul>
+  <ul id="info">
     <li>
       {{this.qty}} {{this.ingredientName}}
     </li>
   </ul>
   {{/each}}
 </p>
+</div>
 
 <button id="carro">Añadir al carrito</button>
-</span>
+
 
 <script>
+
 var button = document.getElementById('carro');
 button.addEventListener('click', function() {
-  recipe.push({{this.ingredientes}})
+  allIng = document.getElementById('info').childNodes.textContent
+  recipe= [];
+  recipe.push(allIng)
   console.log(recipe);
 })
 {{!-- console.log(recipe); --}}
@@ -30,4 +48,9 @@ button.addEventListener('click', function() {
 
 </script>
 
+
+
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
  
