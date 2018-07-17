@@ -7,25 +7,34 @@
   <p>{{this.preparacion}}</p>
 
 <p>
-  {{#each this.ingredientes}}
+  {{#each this.ingredientes as |ingrediente|}}
   <ul>
     <li>
-      {{this.qty}} {{this.ingredientName}}
+      {{ingrediente}}
     </li>
   </ul>
   {{/each}}
 </p>
 
+
 <button id="carro">Añadir al carrito</button>
 </span>
+
+<a href="/profile/carrito">Carrito</a>
 
 <script>
 var button = document.getElementById('carro');
 button.addEventListener('click', function() {
-  recipe.push({{this.ingredientes}})
-  console.log(recipe);
+  
+  ingredientes = '{{ingredientes}}'
+  console.log('{{{order}}}')
+  
+  let laOrden='{{{order}}}'
+  laOrden=[]
+  laOrden.push(ingredientes)
+  
+  console.log(laOrden)
 })
-{{!-- console.log(recipe); --}}
 
 
 </script>

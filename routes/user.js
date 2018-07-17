@@ -1,6 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const Recipe = require('../models/Recipe')
+const uploadCloud = require('../helpers/cloudinary');
 
 function isAuthenticated(req,res,next){
  if(req.isAuthenticated()){
@@ -31,17 +32,33 @@ router.post('/recetas', (req,res,next)=>{
 })
 
 router.get('/recetas/:id', (req,res,next) =>{
-  recipe=[];
-  req.app.locals.recipe = recipe;
   Recipe.findById(req.params.id)
   .then(recipe => {
+    
     res.render('user/recetaInd', recipe)
   })
   .catch(e => next(e));
 })
 
 router.get('/carrito', (req,res, next)=>{
-  Recipe.findById(req.params.id)
+  res.render('user/carrito')
 })
+
+router.get('/crearReceta', (req,res,next)=>{
+  res.render('user/recetaForm')
+})
+
+router.post('/crearReceta', uploadCloud.single('photo'), (req,res,next)=>{
+  req.body.ing= []
+  ingredientes = req.body.ingredientes
+  req.body.ing.push(ingredientes)
+  req.body.photoURL = req.file.url
+  Recipe.create(req.body)
+  .then(recipe=>{
+  res.send(recipe);
+})
+.catch(e=>next(e));
+})
+
 
 module.exports = router;
