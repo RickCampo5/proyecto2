@@ -1,8 +1,35 @@
-<h2>Recetas: </h2>
+<head>
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+</head>
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      
+      <div class="row center">
+        
+        <h1>Hola mundo recetas</h1>
 
 {{#each recipe}}
 <ul>
   <li><a href="/profile/recetas/{{this.id}}">{{this.nombre}}</a></li>
 </ul>
 
-{{/each}}
+{{/each}}  
+
+      </div>
+      
+      <br><br>
+
+    </div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
