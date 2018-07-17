@@ -21,29 +21,36 @@
 </div>
 <div class="container">
 <p>
-  {{#each this.ingredientes}}
-  <ul id="info">
+  {{#each this.ingredientes as |ingrediente|}}
+  <ul>
     <li>
-      {{this.qty}} {{this.ingredientName}}
+      {{ingrediente}}
     </li>
   </ul>
   {{/each}}
 </p>
 </div>
 
+
 <button id="carro">Añadir al carrito</button>
 
+
+<a href="/profile/carrito">Carrito</a>
 
 <script>
 
 var button = document.getElementById('carro');
 button.addEventListener('click', function() {
-  allIng = document.getElementById('info').childNodes.textContent
-  recipe= [];
-  recipe.push(allIng)
-  console.log(recipe);
+  
+  ingredientes = '{{ingredientes}}'
+  console.log('{{{order}}}')
+  
+  let laOrden='{{{order}}}'
+  laOrden=[]
+  laOrden.push(ingredientes)
+  
+  console.log(laOrden)
 })
-{{!-- console.log(recipe); --}}
 
 
 </script>

@@ -1,0 +1,27 @@
+<h2>Crea tu receta</h2>
+
+<form action="/profile/crearReceta" method="POST" enctype="multipart/form-data">
+<input type="file" name="photo">
+<p>
+  ¿Cómo se llama tu receta?
+  <input type="text" name="nombre">
+</p>
+<div>
+  Ingredientes: <br>
+  <input type="text" name="ingredientes"> <br>
+  <input type="text" name="ingredientes">
+</div>
+<p>
+<select name="categoria">
+  <option value="postre">Postre</option>
+  <option value="ensalda">Ensalada</option>
+  <option value="platoFuerte">Plato Fuerte</option>
+</select>
+</p>
+<p>
+  Preparacion:
+  <input type="text" name="preparacion">
+</p>
+
+<button type="submit">Crear Receta</button>
+</form>
