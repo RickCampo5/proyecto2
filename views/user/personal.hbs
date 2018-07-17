@@ -1,0 +1,9 @@
+<h2>{{username}}</h2>
+
+<h3>Tus recetas</h3>
+
+<ul>
+  {{#each recetas as |receta|}}
+  <li><a href="/profile/recetas/{{receta.id}}">{{receta.nombre}}</a></li>
+  {{/each}}
+</ul>

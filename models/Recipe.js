@@ -9,7 +9,11 @@ const recipeSchema = new Schema({
     type: String,
     enum: ['postre','ensalada', 'platoFuerte']
   },
-  preparacion: String
+  preparacion: String,
+  usuario: {
+    type: Schema.Types.ObjectId,
+    ref:"User"
+  }
 },{
  timestamps:{
    createdAt: 'created_at',

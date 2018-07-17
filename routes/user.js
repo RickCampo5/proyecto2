@@ -1,6 +1,7 @@
 const express = require('express');
 const router  = express.Router();
-const Recipe = require('../models/Recipe')
+const Recipe = require('../models/Recipe');
+const User = require('../models/User');
 const uploadCloud = require('../helpers/cloudinary');
 
 function isAuthenticated(req,res,next){
@@ -20,7 +21,15 @@ function isLoggedIn(req,res,next){
 }
 
 router.get('/', isLoggedIn, (req,res,next)=>{
- res.render('user/profile');
+ res.render('user/profile', req.user);
+})
+
+router.get('/perfil/:username',(req,res,next)=>{
+  User.findById(req.user.id)
+  .populate('recetas', "nombre")
+  .then(user=>{
+    res.render('user/personal', user);
+  })
 })
 
 router.post('/recetas', (req,res,next)=>{
@@ -53,9 +62,15 @@ router.post('/crearReceta', uploadCloud.single('photo'), (req,res,next)=>{
   ingredientes = req.body.ingredientes
   req.body.ing.push(ingredientes)
   req.body.photoURL = req.file.url
+  req.body.usuario = req.user
   Recipe.create(req.body)
   .then(recipe=>{
-  res.send(recipe);
+  User.findById(req.user.id)
+  .then(user=>{
+    user.recipe = recipe.id
+    console.log(recipe.id)
+  })
+  res.redirect('/profile');
 })
 .catch(e=>next(e));
 })
