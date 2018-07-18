@@ -6,10 +6,9 @@
   ¿Cómo se llama tu receta?
   <input type="text" name="nombre">
 </p>
-<div>
+<div id="ingredientes">
   Ingredientes: <br>
-  <input type="text" name="ingredientes"> <br>
-  <input type="text" name="ingredientes">
+  <input type="text" name="ingredientes"> <button type="button" id="btn-newing">+</button> <br> 
 </div>
 <p>
 <select name="categoria">
@@ -25,3 +24,15 @@
 
 <button type="submit">Crear Receta</button>
 </form>
+
+<script>
+  var boton = document.getElementById('btn-newing')
+  
+  boton.addEventListener('click', function(){
+    var node = document.createElement('input')
+    node.name = 'ingredientes'
+    node.type = 'text'
+    var div = document.getElementById('ingredientes')
+    div.appendChild(node)
+  })
+</script>
