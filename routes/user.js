@@ -28,7 +28,7 @@ router.get('/', isLoggedIn, (req,res,next)=>{
 router.get('/recetas/:id/delete',(req,res)=>{
   Recipe.findByIdAndRemove(req.params.id)
   .then(recipe=>{
-    res.redirect('/perfil/:username');
+    res.redirect(`/profile/perfil/${req.user.username}`);
   });
 });
 
@@ -54,6 +54,22 @@ router.get('/recetas/:id', (req,res,next) =>{
     res.render('user/recetaInd', recipe)
   })
   .catch(e => next(e));
+})
+
+router.get('/recetas/edit/:id', (req,res,next)=>{
+  Recipe.findById(req.params.id)
+  .then(recipe=>{
+    res.render('user/recetaUpdate', recipe)
+  })
+})
+
+router.post('/recetas/edit/:id', uploadCloud.single('photo'), (req,res,next)=>{
+  req.body.photoURL = req.file.url
+  Recipe.findByIdAndUpdate(req.params.id, req.body, {new:true})
+  .then(recipe=>{
+    res.redirect(`/profile/recetas/${recipe.id}`)
+  })
+  .catch(e=>next(e));
 })
 
 router.post('/carrito', (req,res, next)=>{
@@ -86,7 +102,7 @@ router.post('/crearReceta', uploadCloud.single('photo'), (req,res,next)=>{
       return User.findByIdAndUpdate(req.user._id, {$push:{recetas:recipe._id}});
     })
     .then(user=>{
-      res.redirect('/profile/perfil/:username');
+      res.redirect(`/profile/perfil/${req.user.username}`);
     })
 .catch(e=>next(e));
 })
