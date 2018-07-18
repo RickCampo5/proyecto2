@@ -31,13 +31,16 @@
 </p>
 </div>
 
+<form action="/profile/carrito" method="POST">
+<input type="text" name="recipeId" value="{{this.id}}">
+<button type="submit" id="carro">Añadir al carrito</button>
+</form>
 
-<button id="carro">Añadir al carrito</button>
 
 
 <a href="/profile/carrito">Carrito</a>
 
-<script>
+{{!-- <script>
 
 var button = document.getElementById('carro');
 button.addEventListener('click', function() {
@@ -47,13 +50,13 @@ button.addEventListener('click', function() {
   
   let laOrden='{{{order}}}'
   laOrden=[]
-  laOrden.push(ingredientes)
+  laOrden += ingredientes
   
   console.log(laOrden)
 })
 
 
-</script>
+</script> --}}
 
 
 

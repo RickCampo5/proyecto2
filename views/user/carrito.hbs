@@ -1,1 +1,7 @@
-<p>{{order}}</p>
+<h2>Hola</h2>
+<ul>
+  {{#each recipes as |recipe|}}
+  <li>{{recipe.nombre}}</li>
+  <li>{{recipe.ingredientes}}</li>
+  {{/each}}
+</ul>

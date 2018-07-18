@@ -5,6 +5,7 @@ const passport = require('passport');
 const multer = require('multer');
 const upload = multer({dest: './public/assets'});
 const uploadCloud = require('../helpers/cloudinary');
+const Carrito = require('../models/Carrito');
 
 function isAuthenticated(req,res,next){
  if(req.isAuthenticated()){
@@ -33,6 +34,8 @@ router.post('/signup', (req,res,next)=>{
  }
  User.register(req.body, req.body.password)
  .then(user=>{
+   req.body.user = user.id;
+   Carrito.create(req.body);
      console.log("Entraste")
      res.redirect('/login')
  })
