@@ -3,14 +3,22 @@
 <div class="section no-pad-bot" id="index-banner">
   <div class="container">
     <br><br>
+
+    {{#if err}}
+<h5 style="color:red">{{err}}</h5>
+{{else}}
+<p></p>
+{{/if}}
     <h2>Bienvenido {{username}}</h2>
     
-    <a href="/profile/perfil/{{username}}">Tu Perfil</a>
+    <button><a href="/profile/perfil/{{username}}">Tu Perfil</a></button>
+     <button><a href="profile/crearReceta">Crea tu receta</a></button>
+     <button><a href="/profile/todas">Todas las Recetas</a></button>
     <form action="/profile/recetas" method="POST">
     <input type="text" name="nombre">
     <button type="submit">Buscar</button>
     <br>
-    <a href="profile/crearReceta">Crea tu receta</a>
+   
   </div>
 </div>
 
