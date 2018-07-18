@@ -24,9 +24,16 @@ router.get('/', isLoggedIn, (req,res,next)=>{
  res.render('user/profile', req.user);
 })
 
+router.get('/recetas/:id/delete',(req,res)=>{
+  Recipe.findByIdAndRemove(req.params.id)
+  .then(recipe=>{
+    res.redirect('/perfil/:username');
+  });
+});
+
 router.get('/perfil/:username',(req,res,next)=>{
   User.findById(req.user.id)
-  .populate('recetas', "nombre")
+  .populate('recetas')
   .then(user=>{
     res.render('user/personal', user);
   })
@@ -58,20 +65,18 @@ router.get('/crearReceta', (req,res,next)=>{
 })
 
 router.post('/crearReceta', uploadCloud.single('photo'), (req,res,next)=>{
-  req.body.ing= []
-  ingredientes = req.body.ingredientes
-  req.body.ing.push(ingredientes)
-  req.body.photoURL = req.file.url
-  req.body.usuario = req.user
-  Recipe.create(req.body)
-  .then(recipe=>{
-  User.findById(req.user.id)
-  .then(user=>{
-    user.recipe = recipe.id
-    console.log(recipe.id)
-  })
-  res.redirect('/profile');
-})
+    req.body.ing= []
+    ingredientes = req.body.ingredientes
+    req.body.ing.push(ingredientes)
+    req.body.photoURL = req.file.url
+    req.body.usuario = req.user
+    Recipe.create(req.body)
+    .then(recipe=>{
+      return User.findByIdAndUpdate(req.user._id, {$push:{recetas:recipe._id}});
+    })
+    .then(user=>{
+      res.redirect('/profile/perfil/:username');
+    })
 .catch(e=>next(e));
 })
 
