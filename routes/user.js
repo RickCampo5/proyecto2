@@ -53,10 +53,6 @@ router.get('/perfil/:username', isLoggedIn, (req,res,next)=>{
 })
 
 router.post('/recetas', (req,res,next)=>{
-  if(!req.body.nombre){
-    req.body.err = "Escibe algo en el campo"
-    res.render('user/profile', req.body)
-  }
   Recipe.find({ nombre: { $regex:req.body.nombre, $options: 'i' } })
   .then(recipe=>{
     res.render('user/recetas', {recipe})
