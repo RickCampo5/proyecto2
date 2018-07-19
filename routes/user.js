@@ -21,18 +21,22 @@ function isLoggedIn(req,res,next){
  }
 }
 
-router.get('/', isLoggedIn, (req,res,next)=>{
+router.get('/', (req,res,next)=>{
  res.render('user/profile', req.user);
 })
 
 router.get('/recetas/:id/delete',(req,res)=>{
   Recipe.findByIdAndRemove(req.params.id)
   .then(recipe=>{
-    res.redirect('/perfil/:username');
+    res.redirect(`/profile/perfil/${req.user.username}`);
   });
 });
 
-router.get('/perfil/:username',(req,res,next)=>{
+router.get('/perfil', isLoggedIn, (req,res,next)=>{
+  res.redirect(`/profile/perfil/${req.user.username}`)
+})
+
+router.get('/perfil/:username', isLoggedIn, (req,res,next)=>{
   User.findById(req.user.id)
   .populate('recetas')
   .then(user=>{
@@ -41,6 +45,10 @@ router.get('/perfil/:username',(req,res,next)=>{
 })
 
 router.post('/recetas', (req,res,next)=>{
+  if(!req.body.nombre){
+    req.body.err = "Escibe algo en el campo"
+    res.render('user/profile', req.body)
+  }
   Recipe.find({ nombre: { $regex:req.body.nombre, $options: 'i' } })
   .then(recipe=>{
     res.render('user/recetas', {recipe})
@@ -56,14 +64,37 @@ router.get('/recetas/:id', (req,res,next) =>{
   .catch(e => next(e));
 })
 
-router.post('/carrito', (req,res, next)=>{
+router.get('/recetas/edit/:id', (req,res,next)=>{
+  Recipe.findById(req.params.id)
+  .then(recipe=>{
+    res.render('user/recetaUpdate', recipe)
+  })
+})
+
+router.post('/recetas/edit/:id', uploadCloud.single('photo'), (req,res,next)=>{
+  req.body.photoURL = req.file.url
+  Recipe.findByIdAndUpdate(req.params.id, req.body, {new:true})
+  .then(recipe=>{
+    res.redirect(`/profile/recetas/${recipe.id}`)
+  })
+  .catch(e=>next(e));
+})
+
+router.get('/todas',(req,res,next)=>{
+  Recipe.find()
+  .then(recipes=>{
+    res.render('user/todas', {recipes})
+  })
+})
+
+router.post('/carrito', isLoggedIn, (req,res, next)=>{
 Carrito.findOneAndUpdate({user:req.user.id}, {$push:{recipes:req.body.recipeId}})
 .then(carrito => {
   res.redirect('/profile/carrito')
 })
 })
 
-router.get('/carrito', (req,res,next)=>{
+router.get('/carrito', isLoggedIn, (req,res,next)=>{
   Carrito.findOne({user:req.user.id})
   .populate('recipes')
   .then(carrito=>{
@@ -71,7 +102,7 @@ router.get('/carrito', (req,res,next)=>{
   })
 })
 
-router.get('/crearReceta', (req,res,next)=>{
+router.get('/crearReceta', isLoggedIn, (req,res,next)=>{
   res.render('user/recetaForm')
 })
 
@@ -86,7 +117,7 @@ router.post('/crearReceta', uploadCloud.single('photo'), (req,res,next)=>{
       return User.findByIdAndUpdate(req.user._id, {$push:{recetas:recipe._id}});
     })
     .then(user=>{
-      res.redirect('/profile/perfil/:username');
+      res.redirect(`/profile/perfil/${req.user.username}`);
     })
 .catch(e=>next(e));
 })

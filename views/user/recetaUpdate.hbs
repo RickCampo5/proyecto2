@@ -1,15 +1,20 @@
-<button><a href="/profile">Atras</a></button>
-<h2>Crea tu receta</h2>
+<h2>Modifica tu Receta</h2>
 
-<form action="/profile/crearReceta" method="POST" enctype="multipart/form-data">
-<input type="file" name="photo">
+<form action="/profile/recetas/edit/{{_id}}" method="POST" enctype="multipart/form-data">
+
+<!--la foto-->
+<img src="{{photoURL}}" alt="" width="100px">
+<input type="file" name="photo" >
 <p>
-  ¿Cómo se llama tu receta?
-  <input type="text" name="nombre">
+  Nombre:
+  <input type="text" name="nombre" value="{{nombre}}">
 </p>
 <div id="ingredientes">
   Ingredientes: <br>
-  <input type="text" name="ingredientes"> <button type="button" id="btn-newing">+</button> <br> 
+  {{#each ingredientes as |ingrediente|}}
+  <input type="text" name="ingredientes" value="{{ingrediente}}"> 
+  {{/each}}
+  <button type="button" id="btn-newing">+</button> <br> 
 </div>
 <p>
 <select name="categoria">
@@ -20,10 +25,10 @@
 </p>
 <p>
   Preparacion:
-  <input type="text" name="preparacion">
+  <input type="text" name="preparacion" value="{{preparacion}}">
 </p>
 
-<button type="submit">Crear Receta</button>
+<button type="submit">Modificar Receta</button>
 </form>
 
 <script>
