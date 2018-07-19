@@ -12,7 +12,6 @@ const session = require('express-session');
 const passport = require('./helpers/passport');
 
 
-
 mongoose.Promise = Promise;
 mongoose
   .connect(process.env.DB, {useMongoClient: true})
