@@ -72,7 +72,7 @@ router.get('/recetas/edit/:id', (req,res,next)=>{
 })
 
 router.post('/recetas/edit/:id', uploadCloud.single('photo'), (req,res,next)=>{
-  req.body.photoURL = req.file.url
+  if(req.file) req.body.photoURL = req.file.url
   Recipe.findByIdAndUpdate(req.params.id, req.body, {new:true})
   .then(recipe=>{
     res.redirect(`/profile/recetas/${recipe.id}`)
