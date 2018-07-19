@@ -7,7 +7,7 @@
   {{#each recetas as |receta|}}
   <li>
     <a href="/profile/recetas/{{receta.id}}">{{receta.nombre}}</a>
-    <button><a href="/profile/recetas/{{receta.id}}/edit">Editar</a></button>
+    <button><a href="/profile/recetas/edit/{{receta.id}}">Editar</a></button>
     <button><a href="/profile/recetas/{{receta.id}}/delete">Eliminar</a></button>
   </li> 
   {{/each}}
