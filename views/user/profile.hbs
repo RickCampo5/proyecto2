@@ -2,17 +2,25 @@
 
 <div class="section no-pad-bot" id="index-banner">
   <div class="container">
+    <div class="container">
+      <div class="container" >
+
     <br><br>
 
-    <h2>Bienvenido {{username}}</h2>
+    <h2 style="text-color:">Bienvenido {{username}}</h2>
     
-     <button class="btn-large waves-effect waves-light light-green white-text"><a href="profile/crearReceta">Crea tu receta</a></button>
-     <button class="btn-large waves-effect waves-light light-green white-text"><a href="/profile/todas">Todas las Recetas</a></button>
+    <a href="profile/crearReceta"> <button id="download-button" class="btn-large waves-effect waves-light light-green white-text">Crea tu receta</button></a>
+    <a href="/profile/todas"> <button id="download-button" class="btn-large waves-effect waves-light light-green white-text">Todas las Recetas</button></a>
+     
     <form validated action="/profile/recetas" method="POST">
     <input type="text" name="nombre" required>
     <button type="submit">Buscar</button>
     <br>
    
+
+</div>
+</div>
+
   </div>
 </div>
 
