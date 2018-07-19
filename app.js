@@ -15,11 +15,7 @@ const passport = require('./helpers/passport');
 
 mongoose.Promise = Promise;
 mongoose
-<<<<<<< HEAD
   .connect(process.env.DB || process.env.DBL, {useMongoClient: true})
-=======
-  .connect(process.env.DBL, {useMongoClient: true})
->>>>>>> 7d8b851655516663c762a82d582af51efd7eabc1
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
