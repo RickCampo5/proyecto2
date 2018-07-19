@@ -25,6 +25,14 @@ router.get('/', (req,res,next)=>{
  res.render('user/profile', req.user);
 })
 
+router.get('/pedidoHecho', (req,res,next)=>{
+  Carrito.findOneAndUpdate({user:req.user.id}, {$unset:{recipes:""}})
+  .then(carrito=>{
+    res.render('user/gracias', req.user)
+  })
+  .catch(e=>next(e));
+})
+
 router.get('/recetas/:id/delete',(req,res)=>{
   Recipe.findByIdAndRemove(req.params.id)
   .then(recipe=>{
@@ -99,6 +107,13 @@ router.get('/carrito', isLoggedIn, (req,res,next)=>{
   .populate('recipes')
   .then(carrito=>{
     res.render('user/carrito', carrito);
+  })
+})
+
+router.get('/carrito/delete/:id', (req,res,next)=>{
+  Carrito.findOneAndUpdate({user:req.user.id}, {$pull:{recipes:req.params.id}})
+  .then(carrito=>{
+    res.redirect('/profile/carrito');
   })
 })
 
