@@ -1,29 +1,46 @@
 
 
   <div class="section no-pad-bot" id="index-banner">
-    <div class="container cuadroLS">
+    <div class="container">
+      <div class="container">
+        <div class="container">
+          <div class="container">
+
       <br><br>
-      <h1 class="header center orange-text">Iniciar sesión</h1>
+
+
+      <h1 class="header center light-green-text" style="font-size:40px">Iniciar sesión</h1>
       <div class="row center">
         {{!-- <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5> --}}
         {{#if error}} 
         <h1 style="color:red">{{error}}</h1> 
         {{/if}}
         <form action="/login" method="post">
-        <p> Tu email
-        <input name="email" type="email"></p>
-        <p> Tu password
-        <input name="password" type="password"></p>
+        <p class="center"> Tu email
+        <input name="email" type="email" class="center"></p>
+        <p class="center"> Tu password
+        <input name="password" type="password" class="center"></p>
         
         <div class="row center">
             {{!-- <a id="download-button" class="btn-large waves-effect waves-light orange white-text"><input type="submit" ></a> --}}
-            <input id="download-button" class="btn-large waves-effect waves-light orange white-text" type="submit">
+            <input id="download-button" class="btn-large waves-effect waves-light light-green white-text" type="submit">
         </div>
         </form>
       </div>
       
+
+      </div>
+      </div> {{!-- para hacerlo más chico --}}
+      </div>{{!-- mas chico --}}
+
+
+    
       <br><br>
 
+
+{{!-- Aquí va el col l6 --}}
+
+{{!-- Aquí va el row --}}
     </div>
   </div>
 

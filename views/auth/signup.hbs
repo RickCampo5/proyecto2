@@ -3,14 +3,20 @@
 
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
+
+<div class="container">
+<div class="container">
+<div class="container">
+
       <br><br>
-      <h1 class="header center orange-text">Iniciar sesión</h1>
+      {{!-- <h1 class="header center orange-text" style="font-size:40px" >
+          Iniciar sesión</h1> --}}
       <div class="row center">
-        {{#if error}}
-<h1 style="color:red">{{error}}</h1>
-{{else}}
-<h1>Crea tu cuenta:</h1>
-{{/if}}
+          {{#if error}}
+          <h1 style="color:red">{{error}}</h1>
+          {{else}}
+          <h1 class="header center orange-text" style="font-size:45px">Crea tu cuenta:</h1>
+          {{/if}}
 
 
 
@@ -33,11 +39,17 @@
    </p>
    <div class="row center">
             {{!-- <a id="download-button" class="btn-large waves-effect waves-light orange white-text"><input type="submit" ></a> --}}
-            <input id="download-button" class="btn-large waves-effect waves-light orange white-text" type="submit">
+            <a href="/login"> <button id="download-button" class="btn-large waves-effect waves-light light-green white-text"> Login</button></a>
+            <input id="download-button" class="btn-large waves-effect waves-light orange white-text" type="submit"> 
         </div>
 </form>
       </div>
       
+
+</div>
+</div> {{!-- para hacerlo más chico --}}
+</div>{{!-- mas chico --}}
+
       <br><br>
 
     </div>
