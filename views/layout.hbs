@@ -19,7 +19,13 @@
       <a id="logo-container" href="/" class="brand-logo"><img src="https://res.cloudinary.com/dfjzvlip6/image/upload/v1532012231/assets_method-draw-image-media_lib_thumb-c_scale_w_50.png" style="margin-top:10px " alt="logoBuenaReceta" ></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="/profile/carrito">Carrito</a></li>
-        <li><a href="/logout">Log Out</a></li>
+
+
+
+
+
+
+        <li class="logout"><a href="/logout">Log Out</a></li>
       </ul>
 
       <ul id="nav-mobile" class="sidenav">
@@ -29,9 +35,25 @@
     </div>
   </nav>
 
-    {{{body}}}
+<div style="min-height:500px">
+  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 
-    <footer class="page-footer light-green" style="position:absolute width:100vw bottom:0">  {{!-- Aquí el cambio --}}
+<!--  Content  -->
+
+  {{{body}}}
+
+  
+<!--  Video is muted & autoplays, placed after major DOM elements for performance & has an image fallback  -->
+<video autoplay loop id="video-background" muted plays-inline>
+  <source src="https://res.cloudinary.com/dfjzvlip6/video/upload/v1532024823/Buena_Receta_1.mp4" type="video/mp4">
+</video>
+
+  
+    
+
+    </video>
+</div>
+    <footer class="page-footer light-green" style="position:absolute   width:100vw bottom:0">  {{!-- Aquí el cambio --}}
     <div class="container">
       <div class="row">
         <div class="col l5 s12">
@@ -45,16 +67,16 @@
           <h5 class="white-text">Contacto</h5>
           <ul>
             <li> <a class="white-text" href="#"><p>Ricardo Campos</p></a></li>
-            <li><a class="white-text" href="https://www.facebook.com/ricardo.campos.54" target="_blank"><i class="fab fa-facebook-f"></i></a> <a class="white-text" href="https://github.com/RickCampo5" target="_blank"><i class="fab fa-github"></i></a></li>
+            <li><a class="white-text iconitos" href="https://www.facebook.com/ricardo.campos.54" target="_blank"><i class="fab fa-facebook-f"></i></a> <a class="white-text iconitos" href="https://github.com/RickCampo5" target="_blank"><i class="fab fa-github"></i></a></li>
             
             
           </ul>
         </div>
         <div class="col l3 s12" style="float: right">
-          <h5 class="white-text">Contacto</h5>
+          <h5 class="white-text">.</h5>
           <ul>
             <li><a class="white-text" href="#"><p> Javier Ramírez</a></li>
-            <li><a class="white-text" href="https://www.facebook.com/xavier.ramirez.39794" target="_blank"><i class="fab fa-facebook-f"></i></a> <a class="white-text" href="https://github.com/javieramirez90" target="_blank"><i class="fab fa-github"></i></a></li>
+            <li><a class="white-text iconitos" href="https://www.facebook.com/xavier.ramirez.39794" target="_blank"><i class="fab fa-facebook-f"></i></a> <a class="white-text iconitos" href="https://github.com/javieramirez90" target="_blank"><i class="fab fa-github"></i></a></li>
           </ul>
         </div>
 
@@ -76,7 +98,18 @@
   <script src="/js/init.js"></script>
 
   </body>
-
   
 </html>
+
+
+<script type="text/javascript">
+
+function hideLogout(){
+  
+  document.getElementById('logout').style.visibility = 'hidden';
+  }
+  function hideLogin(){
+    document.getElementById('login').style.visibility = 'hidden';
+    }
+</script>
 

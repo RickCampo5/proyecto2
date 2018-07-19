@@ -4,6 +4,35 @@
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
 
+.iconitos {
+margin: 0 10px;
+}
+
+/* The only rule that matters */
+#video-background {
+  /*  making the video fullscreen  */
+    position: fixed;
+    right: 0; 
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; 
+    height: auto;
+    z-index: -100;
+  }
+  
+  /* These just style the content */
+  article {
+  /*  just a fancy border  */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* border: 10px solid rgba(255, 255, 255, 0.5); */
+    margin: 10px;
+  }
+
  .cuadroLS {
   border: 4px solid black;
   width: 500px;
@@ -2169,7 +2198,15 @@ html {
  * Remove the margin in all browsers (opinionated).
  */
 body {
-  margin: 0;
+  /* margin: 0; */
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+
 }
 
 /**
@@ -2953,6 +2990,7 @@ ul.staggered-list li {
   color: #fff;
   background-color: #ee6e73;
 }
+
 
 .page-footer .footer-copyright {
   overflow: hidden;

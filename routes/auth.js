@@ -27,6 +27,8 @@ router.get('/signup', (req,res,next)=>{
  res.render('auth/signup')
 });
 
+
+
 router.post('/signup', (req,res,next)=>{
  if(req.body.password !== req.body.password2){
      req.body.err = "Tu password no coincide"
