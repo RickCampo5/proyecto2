@@ -6,7 +6,7 @@
   {{#each recipes as |recipe|}}
   
   <li ><h4 id="title" onclick="abrir('{{recipe._id}}')">{{recipe.nombre}} ▼</h4></li>
-  <button><a href="/profile/carrito/delete/{{recipe._id}}">Borrar</a></button>
+  <button class="btn-large waves-effect waves-light light-green white-text"><a href="/profile/carrito/delete/{{recipe._id}}">Borrar</a></button>
   <div id="{{recipe._id}}" style="display:none">
   {{#each ingredientes as |ingrediente|}} 
   <li>{{ingrediente}}</li> 
@@ -26,20 +26,10 @@
   </div>
   {{/each}}
 </ul>
-<<<<<<< HEAD
-</div>
-
-
-
-
 </form> 
 
-=======
-</form> 
-
-<button><a href="/profile/pedidoHecho">Hacer Pedido</a></button>
+<button class="btn-large waves-effect waves-light light-green white-text"><a href="/profile/pedidoHecho">Hacer Pedido</a></button>
 </div>
->>>>>>> 898e0deb7910c8a7fec3ce3c265ac3f1b60bbdd2
 
 
 <script>

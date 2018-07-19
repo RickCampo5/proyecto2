@@ -4,18 +4,12 @@
   <div class="container">
     <br><br>
 
-    {{#if err}}
-<h5 style="color:red">{{err}}</h5>
-{{else}}
-<p></p>
-{{/if}}
     <h2>Bienvenido {{username}}</h2>
     
-    <button><a href="/profile/perfil/{{username}}">Tu Perfil</a></button>
-     <button><a href="profile/crearReceta">Crea tu receta</a></button>
-     <button><a href="/profile/todas">Todas las Recetas</a></button>
-    <form action="/profile/recetas" method="POST">
-    <input type="text" name="nombre">
+     <button class="btn-large waves-effect waves-light light-green white-text"><a href="profile/crearReceta">Crea tu receta</a></button>
+     <button class="btn-large waves-effect waves-light light-green white-text"><a href="/profile/todas">Todas las Recetas</a></button>
+    <form validated action="/profile/recetas" method="POST">
+    <input type="text" name="nombre" required>
     <button type="submit">Buscar</button>
     <br>
    
