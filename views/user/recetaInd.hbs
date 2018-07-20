@@ -6,20 +6,22 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 </head>
 
-<button><a href="/profile">Buscador</a></button>
- <h2>{{this.nombre}}</h2>
-<div class="container">
- <span>
-  <img src="{{this.photoURL}}" alt="DescripciónGráfica">
-</span>
 
-<span>
-  <p>
+ 
+<div class="container2">  
+  <h2 style="font-size:45px">{{this.nombre}}</h2>
+<div style="background-color:#E4EBF1; height:auto">
+ <span style="display:inline-block; width:30% ">
+  <img src="{{this.photoURL}}" alt="DescripciónGráfica" style="width: 330px; height:auto">
+</span>
+<span style="display:inline-block; width:60%; margin-left:10px; float:left">
+  <p style="width: auto; height:auto; margin-top:0">
     {{this.preparacion}}
   </p>
 </span>
 </div>
-<div class="container">
+<div style="background-color:#EAC056">
+  
 <p>
   {{#each this.ingredientes as |ingrediente|}}
   <ul>
@@ -31,14 +33,19 @@
 </p>
 </div>
 
+</div>
+
 <form action="/profile/carrito" method="POST">
 <input type="text" name="recipeId" value="{{this.id}}" style="display:none">
-<button type="submit" id="carro">Añadir al carrito</button>
+
+<div class="container2">
+<button type="submit" id="carro" class="btn-large waves-effect waves-light light-green white-text ">Añadir al carrito</button>
+</div>
 </form>
 
-
-
-<a href="/profile/carrito">Carrito</a>
+<div class="container2" style="margin-top:15px; margin-bottom:15px">
+<a href="/profile/carrito"><button type="submit" id="carro" class="btn-large waves-effect waves-light orange white-text ">Carrito</button></a>
+</div>
 
 {{!-- <script>
 

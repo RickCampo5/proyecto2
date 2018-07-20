@@ -6,12 +6,14 @@
 <div class="center">
 <h2 style="color:white">Tu carrito Walmart</h2>
 <form action="/pedidoHecho" method="POST">
-<ul>
+<ul style="float:left">
   {{#each recipes as |recipe|}}
   
-  <li ><h4 id="title" onclick="abrir('{{recipe._id}}')">{{recipe.nombre}} ▼</h4></li>
-  <button class="btn-large waves-effect waves-light light-green white-text"><a href="/profile/carrito/delete/{{recipe._id}}">Borrar</a></button>
-  <div id="{{recipe._id}}" style="display:none">
+  <li><h4 id="title" onclick="abrir('{{recipe._id}}')">{{recipe.nombre}} ▼</h4></li>
+  <a href="/profile/carrito/delete/{{recipe._id}}"><button class="btn-large waves-effect waves-light light-green white-text">Borrar</button></a>
+  
+  
+  <div id="{{recipe._id}}" style="display:none; padding:0; margin-top:0; background-color:cornsilk; border:3px solid orange ">
   {{#each ingredientes as |ingrediente|}} 
   <li>{{ingrediente}}</li> 
    <p>
@@ -35,7 +37,7 @@
 <div class="center" style="margin:10px">
 <a href="/profile" > <button id="download-button" class="btn-large waves-effect waves-light orange white-text">Seguir Buscando</button></a>
 </div>
-<div class="center"><a href="/profile/pedidoHecho"> <button id="download-button" class="btn-large waves-effect waves-light light-green white-text"> Hacer Pedido</button></a></div>
+<div class="center" style="margin-bottom:18px"><a href="/profile/pedidoHecho"> <button id="download-button" class="btn-large waves-effect waves-light light-green white-text"> Hacer Pedido</button></a></div>
 
 
 </div>
