@@ -1,6 +1,10 @@
 <div class="container">
-  <button><a href="/profile">Seguir Buscando</a></button>
-<h2>Tu carrito Walmart</h2>
+  <div class="container">
+  <div class="container" class="center">
+    
+
+<div class="center">
+<h2 style="color:white">Tu carrito Walmart</h2>
 <form action="/pedidoHecho" method="POST">
 <ul>
   {{#each recipes as |recipe|}}
@@ -27,9 +31,20 @@
   {{/each}}
 </ul>
 </form> 
-<a href="/profile/pedidoHecho"> <button id="download-button" class="btn-large waves-effect waves-light light-green white-text"> Hacer Pedido</button></a>
+</div>
+<div class="center" style="margin:10px">
+<a href="/profile" > <button id="download-button" class="btn-large waves-effect waves-light orange white-text">Seguir Buscando</button></a>
+</div>
+<div class="center"><a href="/profile/pedidoHecho"> <button id="download-button" class="btn-large waves-effect waves-light light-green white-text"> Hacer Pedido</button></a></div>
+
 
 </div>
+</div>
+</div>
+
+
+
+
 
 
 <script>
