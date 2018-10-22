@@ -1,0 +1,44 @@
+<h2>Modifica tu Receta</h2>
+
+<form action="/profile/recetas/edit/{{_id}}" method="POST" enctype="multipart/form-data">
+
+<!--la foto-->
+<img src="{{photoURL}}" alt="" width="100px">
+<input type="file" name="photo" >
+<p>
+  Nombre:
+  <input type="text" name="nombre" value="{{nombre}}">
+</p>
+<div id="ingredientes">
+  Ingredientes: <br>
+  {{#each ingredientes as |ingrediente|}}
+  <input type="text" name="ingredientes" value="{{ingrediente}}"> 
+  {{/each}}
+  <button type="button" id="btn-newing">+</button> <br> 
+</div>
+<p>
+<select name="categoria">
+  <option value="postre">Postre</option>
+  <option value="ensalada">Ensalada</option>
+  <option value="platoFuerte">Plato Fuerte</option>
+</select>
+</p>
+<p>
+  Preparacion:
+  <input type="text" name="preparacion" value="{{preparacion}}">
+</p>
+
+<button type="submit">Modificar Receta</button>
+</form>
+
+<script>
+  var boton = document.getElementById('btn-newing')
+  
+  boton.addEventListener('click', function(){
+    var node = document.createElement('input')
+    node.name = 'ingredientes'
+    node.type = 'text'
+    var div = document.getElementById('ingredientes')
+    div.appendChild(node)
+  })
+</script>

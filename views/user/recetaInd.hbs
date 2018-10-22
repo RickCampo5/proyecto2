@@ -1,33 +1,73 @@
+<head>
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+</head>
 
- <h2>{{this.nombre}}</h2>
 
- <span><img src="{{this.photoURL}}" alt="DescripciónGráfica"></span>
-
-<span>
-  <p>{{this.preparacion}}</p>
-
+ 
+<div class="container2">  
+  <h2 style="font-size:45px">{{this.nombre}}</h2>
+<div style="background-color:#E4EBF1; height:auto">
+ <span style="display:inline-block; width:30% ">
+  <img src="{{this.photoURL}}" alt="DescripciónGráfica" style="width: 330px; height:auto">
+</span>
+<span style="display:inline-block; width:60%; margin-left:10px; float:left">
+  <p style="width: auto; height:auto; margin-top:0">
+    {{this.preparacion}}
+  </p>
+</span>
+</div>
+<div style="background-color:#EAC056">
+  
 <p>
-  {{#each this.ingredientes}}
+  {{#each this.ingredientes as |ingrediente|}}
   <ul>
     <li>
-      {{this.qty}} {{this.ingredientName}}
+      {{ingrediente}}
     </li>
   </ul>
   {{/each}}
 </p>
+</div>
 
-<button id="carro">Añadir al carrito</button>
-</span>
+</div>
 
-<script>
+<form action="/profile/carrito" method="POST">
+<input type="text" name="recipeId" value="{{this.id}}" style="display:none">
+
+<div class="container2">
+<button type="submit" id="carro" class="btn-large waves-effect waves-light light-green white-text ">Añadir al carrito</button>
+</div>
+</form>
+
+<div class="container2" style="margin-top:15px; margin-bottom:15px">
+<a href="/profile/carrito"><button type="submit" id="carro" class="btn-large waves-effect waves-light orange white-text ">Carrito</button></a>
+</div>
+
+{{!-- <script>
+
 var button = document.getElementById('carro');
 button.addEventListener('click', function() {
-  recipe.push({{this.ingredientes}})
-  console.log(recipe);
+  
+  ingredientes = '{{ingredientes}}'
+  console.log('{{{order}}}')
+  
+  let laOrden='{{{order}}}'
+  laOrden=[]
+  laOrden += ingredientes
+  
+  console.log(laOrden)
 })
-{{!-- console.log(recipe); --}}
 
 
-</script>
+</script> --}}
 
+
+
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
  

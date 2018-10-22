@@ -15,10 +15,10 @@ const userSchema = new Schema({
      ref: 'Recipe'
    }
 ],
-carrito: [
+carrito: 
   {type: Schema.Types.ObjectId,
     ref:'Carrito'
-  }]
+  }
 },{
  timestamps:{
    createdAt: 'created_at',

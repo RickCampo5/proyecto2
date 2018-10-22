@@ -12,10 +12,9 @@ const session = require('express-session');
 const passport = require('./helpers/passport');
 
 
-
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/proyecto2', {useMongoClient: true})
+  .connect(process.env.DB, {useMongoClient: true})
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
@@ -59,7 +58,9 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Buena Receta';
+app.locals.order = ['xd']
+
 
 
 

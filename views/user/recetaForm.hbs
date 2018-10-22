@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="container">
+    <div class="container">
+
+    
+<h2 class="orange-text">¡Crea tu receta!</h2>
+
+<form action="/profile/crearReceta" method="POST" enctype="multipart/form-data">
+<input type="file" name="photo" required>
+<p class="white-text">
+  ¿Cómo se llama tu receta?
+  <input type="text" name="nombre" class="white-text">
+</p>
+<div id="ingredientes" class="white-text">
+  Ingredientes: <br>
+  <input type="text" name="ingredientes" class="white-text"> <button type="button" id="btn-newing" class="btn-medium waves-effect waves-light orange white-text">+</button> <br> 
+</div>
+<p>
+<select name="categoria" required>
+  <option value="postre">Postre</option>
+  <option value="ensalada">Ensalada</option>
+  <option value="platoFuerte">Plato Fuerte</option>
+</select>
+</p>
+<p class="white-text">
+  Preparación:
+  <input type="text" name="preparacion" class="white-text">
+</p>
+<div class="center">
+{{!-- <a href="profile/crearReceta"> <button id="download-button" class="btn-large waves-effect waves-light light-green white-text">Crea tu receta</button></a>
+    <a href="/profile/todas"> <button id="download-button" class="btn-large waves-effect waves-light light-green white-text">Todas las Recetas</button></a>
+<input id="download-button" class="btn-large waves-effect waves-light light-green white-text" type="submit" text="enviar"> --}}
+<button type="submit" id="download-button" class="btn-large waves-effect waves-light orange white-text" style="margin:10px">Crear Receta</button>
+
+
+</form>
+</div>
+<div class="center">
+<a href="/profile"> <button id="download-button" class="btn-large waves-effect waves-light light-green white-text" style="margin:10px">Atrás</button></a>
+</div>
+</div>
+  </div>
+</div>
+
+<script>
+  var boton = document.getElementById('btn-newing')
+  
+  boton.addEventListener('click', function(){
+    var node = document.createElement('input')
+    node.name = 'ingredientes'
+    node.type = 'text'
+    var div = document.getElementById('ingredientes')
+    div.appendChild(node)
+  })
+</script>

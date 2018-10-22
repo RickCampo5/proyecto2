@@ -1,7 +1,37 @@
-<h2>Bienvenido {{username}}</h2>
-<a href="/crearReceta">Crea tu receta</a>
-<form action="/profile/recetas" method="POST">
-<input type="text" name="nombre">
-<button type="submit">Buscar</button>
 
-Add CommentClick to expand inline (6 lines)
+
+<div class="section no-pad-bot" id="index-banner">
+  <div class="container">
+    <div class="container">
+      <div class="container" >
+
+    <br><br>
+
+    <h2 style="text-color:">Bienvenido {{username}}</h2>
+    
+    <a href="profile/crearReceta"> <button id="download-button" class="btn-large waves-effect waves-light light-green white-text">Crea tu receta</button></a>
+    <a href="/profile/todas"> <button id="download-button" class="btn-large waves-effect waves-light light-green white-text">Todas las Recetas</button></a>
+     
+    <form validated action="/profile/recetas" method="POST">
+    <input type="text" name="nombre" required>
+    <button type="submit">Buscar</button>
+    <br>
+   
+
+</div>
+</div>
+
+  </div>
+</div>
+
+<body>
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+</body>
+
+
+
+
+

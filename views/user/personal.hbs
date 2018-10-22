@@ -1,0 +1,19 @@
+<div class="container">
+
+<h2 style="color:white">{{username}}</h2>
+
+<h3 style="color:white">Tus recetas:</h3>
+
+<ul>
+  {{#each recetas as |receta|}}
+  <li>
+    <a href="/profile/recetas/{{receta.id}}" style="font-size:33px; font-family:Gill Sans Extrabold; color:white">{{receta.nombre}}</a>
+    <a href="/profile/recetas/edit/{{receta.id}}"><button class="btn-small waves-effect waves-light light-green white-text">Editar</button></a>
+    <a href="/profile/recetas/{{receta.id}}/delete"><button class="btn-small waves-effect waves-light red white-text">Eliminar</button></a>
+  </li> 
+  {{/each}}
+</ul>
+
+<a href="/profile/crearReceta"><button class="btn-large waves-effect waves-light orange white-text">Crear otra Receta</button></a>
+<a href="/logout"><button class="btn-large waves-effect waves-light orange white-text">Log Out</button></a>
+</div>

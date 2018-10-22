@@ -1,13 +1,129 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Buena Receta</title>
 
-    {{{body}}}
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+</head>
 
-    <script src='/javascripts/script.js'></script>
+
+<body>
+  <div class="animateme">
+  <ul class="bg-bubbles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
+  <nav class="orange " role="navigation">{{!-- Aquí el cambio --}}
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="/" class="brand-logo"><img src="https://res.cloudinary.com/dfjzvlip6/image/upload/v1532012231/assets_method-draw-image-media_lib_thumb-c_scale_w_50.png" style="margin-top:10px " alt="logoBuenaReceta" ></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/profile/carrito">Carrito</a></li>
+        <li><a href="/profile">Busca una receta</a></li>
+        <li class="login"><a href="/profile/perfil">Perfil</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="/profile/carrito">Carrito</a></li>
+        <li><a href="/profile">Busca una receta</a></li>
+        <li class="login"><a href="/profile/perfil">Perfil</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+<div style="min-height:500px">
+  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+
+<!--  Content  -->
+
+  {{{body}}}
+
+  
+<!--  Video is muted & autoplays, placed after major DOM elements for performance & has an image fallback  -->
+<video autoplay loop id="video-background" muted plays-inline>
+  <source src="https://res.cloudinary.com/dfjzvlip6/video/upload/v1532024823/Buena_Receta_1.mp4" type="video/mp4">
+</video>
+
+  
+    
+
+    </video>
+</div>
+    <footer class="page-footer light-green" style="position:absolute   width:100vw bottom:0">  {{!-- Aquí el cambio --}}
+    <div class="container">
+      <div class="row">
+        <div class="col l5 s12">
+          <h5 class="white-text">Sobre nosotros</h5>
+          <p class="grey-text text-lighten-4">Preocupados por la optimización de los recursos Buena Receta busca disminuir el desperdicio de elementos a través de la correcta planeación de las necesidades alimenticias. A través de esta aplicación, serás capaz de conocer tu consumo exacto de alimento para evitar el desperdiciar y tirar algo a la basura. </p>
+
+
+        </div>
+        <div class="container"  >
+        <div class="col l3 s12" style="float: right">
+          <h5 class="white-text">Contacto</h5>
+          <ul>
+            <li> <a class="white-text" href="#"><p>Ricardo Campos</p></a></li>
+            <li><a class="white-text iconitos" href="https://www.facebook.com/ricardo.campos.54" target="_blank"><i class="fab fa-facebook-f"></i></a> <a class="white-text iconitos" href="https://github.com/RickCampo5" target="_blank"><i class="fab fa-github"></i></a></li>
+            
+            
+          </ul>
+        </div>
+        <div class="col l3 s12" style="float: right">
+          <h5 class="white-text">.</h5>
+          <ul>
+            <li><a class="white-text" href="#"><p> Javier Ramírez</a></li>
+            <li><a class="white-text iconitos" href="https://www.facebook.com/xavier.ramirez.39794" target="_blank"><i class="fab fa-facebook-f"></i></a> <a class="white-text iconitos" href="https://github.com/javieramirez90" target="_blank"><i class="fab fa-github"></i></a></li>
+          </ul>
+        </div>
+
+</div>
+        {{!-- aquí --}}
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="light-green-text text-lighten-3" href="http://materializecss.com">Buena Receta</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="/js/materialize.js"></script>
+  <script src="/js/init.js"></script>
+
   </body>
+  
 </html>
+
+
+<script type="text/javascript">
+
+function hideLogout(){
+  
+  document.getElementById('logout').style.visibility = 'hidden';
+  }
+  function hideLogin(){
+    document.getElementById('login').style.visibility = 'hidden';
+    }
+</script>
+

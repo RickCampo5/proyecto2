@@ -1,0 +1,93 @@
+<div class="container">
+  <div class="container">
+  <div class="container" class="center">
+    
+
+<div class="center">
+<h2 style="color:white">Tu carrito Walmart</h2>
+<form action="/pedidoHecho" method="POST">
+<ul style="float:left">
+  {{#each recipes as |recipe|}}
+  
+  <li><h4 id="title" onclick="abrir('{{recipe._id}}')">{{recipe.nombre}} ▼</h4></li>
+  <a href="/profile/carrito/delete/{{recipe._id}}"><button class="btn-large waves-effect waves-light light-green white-text">Borrar</button></a>
+  
+  
+  <div id="{{recipe._id}}" style="display:none; padding:0; margin-top:0; background-color:cornsilk; border:3px solid orange ">
+  {{#each ingredientes as |ingrediente|}} 
+  <li>{{ingrediente}}</li> 
+   <p>
+     <label>
+       <input type="checkbox" checked="checked" onclick="disable('{{ingrediente}}')"/>
+       <span>Comprar</span>
+     </label>
+   </p>
+   <p>
+  <label for="ingreidente">QTY</label>
+  <input id="{{ingrediente}}" type="text" name="ingrediente" value="{{ingrediente.[0]}}">
+  <p>Price: 5</p> 
+  <h5 id="total"></h5>
+  <hr>
+  {{/each}}
+  </div>
+  {{/each}}
+</ul>
+</form> 
+</div>
+<div class="center" style="margin:10px">
+<a href="/profile" > <button id="download-button" class="btn-large waves-effect waves-light orange white-text">Seguir Buscando</button></a>
+</div>
+<div class="center" style="margin-bottom:18px"><a href="/profile/pedidoHecho"> <button id="download-button" class="btn-large waves-effect waves-light light-green white-text"> Hacer Pedido</button></a></div>
+
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<script>
+
+
+
+const url = 'http://api.walmartlabs.com/v1/search?query=lime&format=json&apiKey=5quub37vm7n65ffdkbrzx7tk'
+fetch(url)
+.then(data=>{
+  return data.json()
+})
+.then(res=>{
+  console.lo(res);
+})
+  /*var title = document.getElementById('title')
+  var lista = document.getElementById('lista')
+  title.addEventListener('click', function(){
+    if(lista.style.display === 'none'){
+    lista.style.display = 'block'
+    }else{
+      lista.style.display = 'none'
+    }
+  })*/
+
+function disable(ingrediente){
+  var input = document.getElementById(ingrediente)
+  if(input.disabled === false){
+    input.disabled = true
+    input.value = '0'
+    }else{
+      input.disabled = false
+      input.value = ingrediente[0]
+    }
+}
+
+  function abrir(id){
+    var lista = document.getElementById(id)
+    if(lista.style.display === 'none'){
+    lista.style.display = 'block'
+    }else{
+      lista.style.display = 'none'
+    }
+  }
+</script>
